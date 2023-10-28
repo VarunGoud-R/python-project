@@ -10,6 +10,7 @@ def home():
     print(user)
     response = requests.get("https://api.github.com/users/" + user)
     data = response.json()
+    print(data.get('name'))
     return render_template("index.html", data=data)
 
 if __name__ == "__main__":
