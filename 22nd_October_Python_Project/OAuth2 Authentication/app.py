@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 
+test = os.getenv("Id")
 GOOGLE_CLIENT_ID = os.getenv("client_id")
 GOOGLE_CLIENT_SECRET = os.getenv("client_secret")
 
@@ -12,7 +13,7 @@ GOOGLE_CLIENT_SECRET = os.getenv("client_secret")
 def index():
     # Redirect the user to Google to authenticate
     # req = request.host_url
-    # print(req)
+    print(test)
     redirect_uri = url_for("callback", _external=True)
     auth_url = f"https://accounts.google.com/o/oauth2/auth?client_id={GOOGLE_CLIENT_ID}&scope=email+profile&response_type=code&redirect_uri={redirect_uri}"
     return redirect(auth_url, code=302)
