@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Recommendation System</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	
+	<body>
+		<div class="movie">
+			<div class="container">
+				<div class=header>Movie Recommendation</div>
+				<form action="{{ url_for('recommend')}}" method="post">
+					<input type="checkbox" id="Action" name="Action" value="Action">
+					<label for="Action">Action</label>
+					<input type="checkbox" id="Adventure" name="Adventure" value="Adventure">
+					<label for="Adventure">Adventure</label>
+					<input type="checkbox" id="Animation" name="Animation" value="Animation">
+					<label for="Animation">Animation</label>
+					<input type="checkbox" id="Children" name="Children" value="Children">
+					<label for="Children">Children</label>
+					<input type="checkbox" id="Comedy" name="Comedy" value="Comedy">
+					<label for="Comedy">Comedy</label>
+					<input type="checkbox" id="Drama" name="Drama" value="Drama">
+					<label for="Drama">Drama</label>
+					<input type="checkbox" id="Fantasy" name="Fantasy" value="Fantasy">
+					<label for="Fantasy">Fantasy</label>
+					<input type="checkbox" id="Mystery" name="Mystery" value="Mystery">
+					<label for="Mystery">Mystery</label>
+					<input type="checkbox" id="Romance" name="Romance" value="Romance">
+					<label for="Romance">Romance</label>
+					<input type="checkbox" id="Thriller" name="Thriller" value="Thriller">
+					<label for="Thriller">Thriller</label>
+					<button type="submit" class="submit_btn">Recommend</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
