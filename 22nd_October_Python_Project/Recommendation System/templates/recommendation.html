@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Content Recommendation</title>
+    </head>
+    <body style="text-align: left;">
+        {% if recommended_movies %}
+            <h1 style="color: green;">Recommended Movies:</h1>
+            <ul>
+                {% for content in recommended_movies %}
+                    <li>{{ content }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h1 style="color: red;">Sorry, No suggestions available!</h1>
+        {% endif %}
+    </body>
+</html>
