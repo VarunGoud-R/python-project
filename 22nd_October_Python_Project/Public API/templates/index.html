@@ -1,0 +1,26 @@
+<html>
+    <title>Public API</title>
+    <body>
+        <h1>API Data</h1>
+
+        <!-- <ul>
+            <li><b>Name:</b> {{ data.get('name') }}</li>
+            <li><b>Company:</b> {{ data.get('company') }}</li>
+            <li><b>User:</b> {{ data.get('login') }}</li>
+        </ul> -->
+        <table border="3px" style="text-align: left;">
+            <tr>
+                <th>Name</th>
+                <td>{{ data.name }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ data.login }}</td>
+            </tr>
+            <tr>
+                <th>Public Repositories</th>
+                <td>{{ data.public_repos }}</td>
+            </tr>
+        </table>
+    </body>
+</html>
