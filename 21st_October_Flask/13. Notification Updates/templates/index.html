@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <title>Real-time Notifications</title>
+</head>
+<body style="text-align: center;">
+    <h1>Real-time Notifications</h1>
+    <button id="notify-button" onclick="sendNotification()">Send Notification</button>
+    <script>
+        const socket = io();
+        // const socket = io.connect('http://' + document.domain + ':' + location.port);
+        document.addEventListener("DOMContentLoaded", () => {
+            // Your code using Toastify here
+            socket.on('notification', function(data) {
+                console.log(Toastify);
+                Toastify({
+                    text: data.message,
+                    duration: 3000,
+                    // duration: -1,   // To keep the notification open
+                    destination: "https://github.com/VarunGoud-R",
+                    newWindow: true,
+                    close: true,
+                    stopOnFocus: true,
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                    onClick: function(){},
+                    gravity: "bottom", // Position the toast at the top
+                    position: "right"
+                }).showToast();
+                alert(data.message);
+                console.log("Notification sent!");
+                // socket.emit("disconnect");
+            });
+        });
+        document.getElementById("notify-button").addEventListener("click", () => {
+            console.log("Send Notification...");
+            socket.emit("send_notification");
+        });
+        function sendNotification() {
+            // fetch('/send_notification');
+        }
+    </script>
+</body>
+</html>
