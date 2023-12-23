@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Books</title>
+    <style>
+        ul li {
+            justify-content: space-between;
+            display: inline-block;
+            width: auto;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <h1>Add Book</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title"><b>Enter Title:</b></label>&nbsp;&nbsp;
+        <input type="text" id="title" name="title" required>
+        <br><br>
+        <label for="author"><b>Enter Author:</b></label>&nbsp;&nbsp;
+        <input type="text" id="author" name="author" required>
+        <br><br>
+        <input style="height: 30px; width: 100px; border-radius: 10px;" type="submit" value="(+) Add">
+    </form>
+    {% if books %}
+        <br><br>
+        <h2>Books:</h2>
+        <ul style="display: inline;">
+            {% for book in books %}
+                <li>* {{ book['id'] }}</li>
+                <li>* {{ book['title'] }}</li>
+                <li>* {{ book['author'] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
