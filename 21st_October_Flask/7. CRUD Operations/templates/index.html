@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #4e1b1b;
+            text-align: left;
+            padding: 10px;
+        }
+        th {
+            background-color: #cff1f6;
+            text-align: center;
+        }
+        td.new {
+            padding: 0px;
+            height: 40px;
+        }
+        td:hover {
+            background-color: #e5e7e7;
+        }
+        form {
+            margin-top: 0%;
+        }
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+        }
+        .add {
+            margin-top: 0%;
+        }
+        .add:hover {
+            cursor: pointer;
+            background-color: #ec30d3;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Data</h1>
+    <!-- <form method="POST" action="{{ url_for('add') }}">
+        <label for="new_data">Add Data:</label>
+        <input type="text" id="name" name="name" required>
+        <input type="submit" value="Add">
+    </form> -->
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i, row in data %}
+                <tr>
+                    <td>{{ i+1 }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit', id=row[0]) }}">Edit</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="{{ url_for('remove', id=row[0]) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <form method="POST" action="{{ url_for('add') }}">
+                    <td>
+                        <label for="sno">...</label>
+                    </td>
+                    <td class="new">
+                        <input type="text" id="name" name="name" required>
+                    </td>
+                    <td class="new">
+                        <input type="text" id="age" name="age" required>
+                    </td>
+                    <td class="new">
+                        <input type="submit" class="add" value="(+) Add">
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
