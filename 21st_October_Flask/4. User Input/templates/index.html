@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Details</title>
+</head>
+<body style="text-align: center; overflow-x: auto;">
+    {% if username and age %}
+        <h2>User Information</h2>
+        <p><b>Username:</b> {{ username }}</p>
+        <p><b>Age:</b> {{ age }}</p>
+    {% else %}
+        <h1>User Input</h1>
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    {% endif %}
+</body>
+</html>
